@@ -1,6 +1,7 @@
 cat ~/.boykisser
 
 export PATH=/home/aethermagee/.local/bin:$PATH
+GPG_TTY=$(tty)
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -121,3 +122,8 @@ alias i="sudo apt install"
 alias u="sudo apt update && sudo apt upgrade"
 alias s="sudo"
 alias n="nvim"
+alias neofetch="fastfetch"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
