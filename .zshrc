@@ -18,8 +18,6 @@ antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
@@ -34,8 +32,6 @@ HISTSIZE=999
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt NO_BEEP
 export HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
 
 # GPG fix
 export GPG_TTY=$(tty)
@@ -52,3 +48,10 @@ alias saup="sudo apt update -y"
 alias saug="sudo apt update -y && sudo apt upgrade -y"
 alias sai="sudo apt install -y"
 alias n="nvim"
+
+# Keybinds
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
