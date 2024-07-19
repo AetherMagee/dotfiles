@@ -1,6 +1,6 @@
 # Antidote install
 if [ ! -d "${ZDOTDIR:-$HOME}/.antidote" ]; then
-	echo Getting Antidote...
+	echo "[.zshrc] Getting Antidote..."
 	git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-$HOME}/.antidote
 fi
 
@@ -39,6 +39,10 @@ bindkey '^[[B' history-substring-search-down
 
 # GPG fix
 export GPG_TTY=$(tty)
+
+# Zoxide
+export PATH=${ZDOTDIR:-$HOME}/.local/bin:$PATH
+eval "$(zoxide init zsh --cmd cd)"
 
 # Aliases
 alias plugs="nvim ${ZDOTDIR:-$HOME}/.zsh_plugins.txt && source ${ZDOTDIR:-$HOME}/.zshrc"
