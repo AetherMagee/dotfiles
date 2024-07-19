@@ -11,6 +11,7 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Antidote init
+zstyle ':antidote:bundle' use-friendly-names 'yes'
 source ${ZDOTDIR:-$HOME}/.antidote/antidote.zsh
 antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
 
@@ -45,21 +46,11 @@ export PATH=${ZDOTDIR:-$HOME}/.local/bin:$PATH
 eval "$(zoxide init zsh --cmd cd)"
 
 # Aliases
-alias plugs="nvim ${ZDOTDIR:-$HOME}/.zsh_plugins.txt && source ${ZDOTDIR:-$HOME}/.zshrc"
-alias zshrc="nvim ${ZDOTDIR:-$HOME}/.zshrc && source ${ZDOTDIR:-$HOME}/.zshrc"
-alias s="sudo"
-alias saup="sudo apt update -y"
-alias saug="sudo apt update -y && sudo apt upgrade -y"
-alias sai="sudo apt install -y"
-alias n="nvim"
-alias dotpush="cd ${ZDOTDIR:-$HOME}/dotfiles && git commit -a -m 'Automatic push via alias' && git push && cd -"
-alias dotpull="cd ${ZDOTDIR:-$HOME}/dotfiles && git pull && cd - && source ${ZDOTDIR:-$HOME}/.zshrc"
-alias dotcheck="cd ${ZDOTDIR:-$HOME}/dotfiles && git status && cd -"
-alias logs="docker compose logs -f -n 250"
-alias logsf="docker compose logs -f"
+source ${ZDOTDIR:-$HOME}/.zsh_aliases
 
 # Keybinds
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+
