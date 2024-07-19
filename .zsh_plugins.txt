@@ -1,0 +1,7 @@
+mattmc3/zephyr path:plugins/completion
+
+romkatv/powerlevel10k
+
+zdharma-continuum/fast-syntax-highlighting kind:defer
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
