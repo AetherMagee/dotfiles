@@ -4,7 +4,7 @@ if [ ! -d "${ZDOTDIR:-$HOME}/.antidote" ]; then
 	git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-$HOME}/.antidote
 fi
 
-# Powerlevel10k 
+# Powerlevel10k
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -54,6 +54,7 @@ alias sai="sudo apt install -y"
 alias n="nvim"
 alias dotpush="cd ${ZDOTDIR:-$HOME}/dotfiles && git commit -a -m 'Automatic push via alias' && git push && cd -"
 alias dotpull="cd ${ZDOTDIR:-$HOME}/dotfiles && git pull && cd - && source ${ZDOTDIR:-$HOME}/.zshrc"
+alias dotcheck="cd ${ZDOTDIR:-$HOME}/dotfiles && git status && cd -"
 alias logs="docker compose logs -f -n 250"
 alias logsf="docker compose logs -f"
 
