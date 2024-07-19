@@ -48,6 +48,8 @@ alias saup="sudo apt update -y"
 alias saug="sudo apt update -y && sudo apt upgrade -y"
 alias sai="sudo apt install -y"
 alias n="nvim"
+alias dotpush="cd ${ZDOTDIR:-$HOME}/dotfiles && git commit -a -m 'Automatic push via alias' && git push && cd -"
+alias dotpull="cd ${ZDOTDIR:-$HOME}/dotfiles && git pull && cd - && source ${ZDOTDIR:-$HOME}/.zshrc"
 
 # Keybinds
 bindkey '^[[A' history-substring-search-up
