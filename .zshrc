@@ -36,6 +36,10 @@ export HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 # GPG fix
 export GPG_TTY=$(tty)
 
+# Editor
+export EDITOR=nvim
+export VISUAL="$EDITOR"
+
 # Zoxide
 export PATH=${ZDOTDIR:-$HOME}/.local/bin:$PATH
 eval "$(zoxide init zsh --cmd cd)"
