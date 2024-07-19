@@ -54,6 +54,8 @@ alias sai="sudo apt install -y"
 alias n="nvim"
 alias dotpush="cd ${ZDOTDIR:-$HOME}/dotfiles && git commit -a -m 'Automatic push via alias' && git push && cd -"
 alias dotpull="cd ${ZDOTDIR:-$HOME}/dotfiles && git pull && cd - && source ${ZDOTDIR:-$HOME}/.zshrc"
+alias logs="docker compose logs -f -n 250"
+alias logsf="docker compose logs -f"
 
 # Keybinds
 bindkey '^[[A' history-substring-search-up
