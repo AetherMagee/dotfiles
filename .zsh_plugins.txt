@@ -1,8 +1,13 @@
-mattmc3/zephyr path:plugins/completion
+# OMZ
+getantidote/use-omz
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+ohmyzsh/ohmyzsh path:plugins/command-not-found
 
 romkatv/powerlevel10k
 
+mattmc3/zephyr path:plugins/completion
 zdharma-continuum/fast-syntax-highlighting kind:defer
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
 MichaelAquilina/zsh-autoswitch-virtualenv
+djui/alias-tips
