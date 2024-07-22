@@ -1,8 +1,36 @@
+# ====================================
+# ========[INSTALLATION BLOCK]========
+# ====================================
+
+# Dependencies install
+if [ ! -f "${ZDOTDIR:-$HOME}/.dotfiles-setup-complete" ]; then
+ read -r "?[.zshrc] Hi! It appears to be a fresh install. Do you want to let us install the dependencies?
+[.zshrc] Note: Only Debian-based distros with APT are supported.
+[.zshrc] Y - Yes, N or Enter - Not now, D - Don't ask me again.
+[.zshrc] >>> " response
+ case "${response}" in
+ [yY]*)
+   echo "[.zshrc] Installing dependencies..."
+   sudo apt install python3 python-is-python3 neovim zoxide
+   touch "${ZDOTDIR:-$HOME}/.dotfiles-setup-complete"
+  ;;
+ [nN]*)
+  ;;
+ [dD]*)
+  touch "${ZDOTDIR:-$HOME}/.dotfiles-setup-complete"
+  ;;
+ esac
+fi
+
 # Antidote install
 if [ ! -d "${ZDOTDIR:-$HOME}/.antidote" ]; then
 	echo "[.zshrc] Getting Antidote..."
 	git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-$HOME}/.antidote
 fi
+
+# =====================================
+# ========[CONFIGURATION BLOCK]========
+# =====================================
 
 # Powerlevel10k
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then

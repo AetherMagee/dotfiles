@@ -10,4 +10,4 @@ zdharma-continuum/fast-syntax-highlighting kind:defer
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
 MichaelAquilina/zsh-autoswitch-virtualenv
-djui/alias-tips
+# djui/alias-tips
