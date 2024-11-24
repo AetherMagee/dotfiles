@@ -35,5 +35,3 @@ update_and_count() {
     echo "$count packages can be upgraded. Run 'apk list -u' to see them."
   fi
 }
-
-alias "aiaa"="aia --auto-proceed"
