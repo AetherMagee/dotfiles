@@ -82,11 +82,14 @@ bindkey '^[[B' history-substring-search-down
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-# Cargo / UV
-. "$HOME/.cargo/env"
+if [ -f "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi
 
-source ~/secrets.zsh
-. "/root/.acme.sh/acme.sh.env"
+if [ -f "$HOME/secrets.zsh" ]; then
+  source "$HOME/secrets.zsh"
+fi
 
-# Addons
-source ~/.zsh_addons/headscale.zsh
+if [ -f "/root/.acme.sh/acme.sh.env" ]; then
+  . "/root/.acme.sh/acme.sh.env"
+fi
