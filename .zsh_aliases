@@ -35,3 +35,14 @@ update_and_count() {
     echo "$count packages can be upgraded. Run 'apk list -u' to see them."
   fi
 }
+
+alias proxy='
+    export HTTPS_PROXY="http://127.0.0.1:10809";
+    export HTTP_PROXY="http://127.0.0.1:10809";
+    export ALL_PROXY="socks5://127.0.0.1:10808";
+'
+alias noproxy='
+    unset HTTPS_PROXY;
+    unset HTTP_PROXY;
+    unset ALL_PROXY;
+'
