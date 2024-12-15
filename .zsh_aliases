@@ -24,18 +24,6 @@ alias dpul="dpu && logs"
 alias pdu="git pull && docker compose down && docker compose up -d --build"
 alias pdul="pdu && logs"
 
-alias "apkc"="update_and_count"
-
-update_and_count() {
-  apk update > /dev/null 2>&1
-  local count=$(apk list -u 2>/dev/null | wc -l)
-  if [ $count -eq 0 ]; then
-    echo "All packages are up to date."
-  else
-    echo "$count packages can be upgraded. Run 'apk list -u' to see them."
-  fi
-}
-
 alias proxy='
     export HTTPS_PROXY="http://127.0.0.1:10809";
     export HTTP_PROXY="http://127.0.0.1:10809";
