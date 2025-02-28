@@ -23,6 +23,9 @@ alias dpu="docker compose down && git pull && docker compose up -d --build"
 alias dpul="dpu && logs"
 alias pdu="git pull && docker compose down && docker compose up -d --build"
 alias pdul="pdu && logs"
+alias dps="docker ps --format \"table {{.ID}}\t{{.Image}}\t{{.Command}}\t{{.CreatedAt}}\t{{.Status}}\t{{.Names}}\""
+
+alias btop="btop --utf-force"
 
 alias proxy='
     export HTTPS_PROXY="http://127.0.0.1:10809";
@@ -34,3 +37,5 @@ alias noproxy='
     unset HTTP_PROXY;
     unset ALL_PROXY;
 '
+
+alias tconf='nvim ${XDG_CONFIG_HOME}/tmux/tmux.conf'

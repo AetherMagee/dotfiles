@@ -93,3 +93,11 @@ fi
 if [ -f "/root/.acme.sh/acme.sh.env" ]; then
   . "/root/.acme.sh/acme.sh.env"
 fi
+. "/root/.acme.sh/acme.sh.env"
+
+# The next line updates PATH for CLI.
+if [ -f '/root/yandex-cloud/path.bash.inc' ]; then source '/root/yandex-cloud/path.bash.inc'; fi
+
+# The next line enables shell command completion for yc.
+if [ -f '/root/yandex-cloud/completion.zsh.inc' ]; then source '/root/yandex-cloud/completion.zsh.inc'; fi
+
