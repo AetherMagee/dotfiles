@@ -1,0 +1,71 @@
+# Antidote install
+if [ ! -d "${ZDOTDIR:-$HOME}/.antidote" ]; then
+        echo "[.zshrc] Getting Antidote..."
+        git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-$HOME}/.antidote
+fi
+
+# Powerlevel10k
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Antidote init
+zstyle ':antidote:bundle' use-friendly-names 'yes'
+source ${ZDOTDIR:-$HOME}/.antidote/antidote.zsh
+antidote load ${ZDOTDIR:-$HOME}/.plugins
+
+# Colored ls
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# History
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt NO_BEEP
+export HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+
+# GPG fix
+export GPG_TTY=$(tty)
+
+# Editor
+export EDITOR=nvim
+export VISUAL="$EDITOR"
+
+# Aliases
+source ${ZDOTDIR:-$HOME}/.aliases
+
+# Keybinds
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
+if [ -f "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi
+
+if [ -f "$HOME/secrets.zsh" ]; then
+  source "$HOME/secrets.zsh"
+fi
+
+if [ -f "/root/.acme.sh/acme.sh.env" ]; then
+  . "/root/.acme.sh/acme.sh.env"
+fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+. "$HOME/.local/bin/env"
+
+alias claude="/root/.claude/local/claude"
+
+eval "$(zoxide init zsh --cmd cd)"
+
+eval "$(chezmoi completion zsh)"
