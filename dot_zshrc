@@ -65,5 +65,3 @@ export NVM_DIR="$HOME/.nvm"
 . "$HOME/.local/bin/env"
 
 alias claude="/root/.claude/local/claude"
-
-eval "$(zoxide init zsh --cmd cd)"
